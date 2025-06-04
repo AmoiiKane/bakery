@@ -47,11 +47,12 @@ $action = $_GET['action'] ?? 'home';
             padding: 1em 2em;
             text-align: center;
         }
-        form input, form select {
+        form input, form select, form textarea {
             padding: 0.5em;
             margin: 0.5em 0;
             width: 100%;
             max-width: 400px;
+            display: block;
         }
         form input[type=submit] {
             background: #6d4c41;
@@ -63,35 +64,47 @@ $action = $_GET['action'] ?? 'home';
         form input[type=submit]:hover {
             background: #8d6e63;
         }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1em;
+        }
+        table, th, td {
+            border: 1px solid #aaa;
+        }
+        th, td {
+            padding: 0.75em;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
-    <header>At Falco's Bakery</header>
-    <nav>
-        <a href="?action=home">Home</a>
-        <a href="?action=add_order">Add Order</a>
-        <a href="?action=inventory">Inventory</a>
-        <a href="?action=recipes">Recipes</a>
-    </nav>
-    <main>
-        <?php
-        switch ($action) {
-            case 'add_order':
-                include 'views/add_order.php';
-                break;
-            case 'inventory':
-                include 'views/inventory.php';
-                break;
-            case 'recipes':
-                include 'views/recipes.php';
-                break;
-            default:
-                include 'views/home.php';
-        }
-        ?>
-    </main>
-    <footer>
-        &copy; <?= date("Y") ?> At Falco's Bakery. All rights reserved.
-    </footer>
+<header>At Falco's Bakery</header>
+<nav>
+    <a href="?action=home">Home</a>
+    <a href="?action=add_order">Add Order</a>
+    <a href="?action=inventory">Inventory</a>
+    <a href="?action=recipes">Recipes</a>
+</nav>
+<main>
+<?php
+switch ($action) {
+    case 'add_order':
+        include 'views/add_order.php';
+        break;
+    case 'inventory':
+        include 'views/inventory.php';
+        break;
+    case 'recipes':
+        include 'views/recipes.php';
+        break;
+    default:
+        include 'views/home.php';
+}
+?>
+</main>
+<footer>
+    &copy; <?= date("Y") ?> At Falco's Bakery. All rights reserved.
+</footer>
 </body>
 </html>

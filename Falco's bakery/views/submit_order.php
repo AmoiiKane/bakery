@@ -9,5 +9,5 @@ $stmt->execute([
     $_POST['pickup_date']
 ]);
 
-header("Location: index.php?action=add_order");
+header("Location: index.php?action=home");
 ?>
